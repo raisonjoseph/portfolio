@@ -262,7 +262,7 @@ export default function PalettePage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.25, duration: 0.6 }}
             >
-              {ROLE} with seven years of React and TypeScript. Currently at Poptin.
+              {ROLE} with seven years across React, Vue and TypeScript. Currently at Poptin.
             </motion.p>
 
             <motion.button

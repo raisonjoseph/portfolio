@@ -139,7 +139,7 @@ export default function Bento() {
 
           <Tile className="b-years accent" index={i++}>
             <p className="b-years-num">7</p>
-            <p className="b-years-text">years building with React and TypeScript</p>
+            <p className="b-years-text">years building with React, Vue and TypeScript</p>
           </Tile>
 
           <Tile className="b-place" index={i++}>
@@ -171,7 +171,7 @@ export default function Bento() {
 
           <Tile className="b-stack" index={i++}>
             <p className="b-label">Stack</p>
-            <p className="b-mid">React, TypeScript and Next.js, every day.</p>
+            <p className="b-mid">React and TypeScript by choice, Vue and PHP at Poptin.</p>
             <div className="b-marquee" aria-label={SKILLS.join(', ')}>
               <motion.div
                 className="b-marquee-track"

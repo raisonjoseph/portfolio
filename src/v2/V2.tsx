@@ -37,8 +37,8 @@ const NODES: NodeDef[] = [
   {
     id: 'stack',
     kicker: '7 years with',
-    title: 'React and TypeScript',
-    body: 'Next.js, Node.js and a bit of Django',
+    title: 'React, Vue and TypeScript',
+    body: 'Next.js, jQuery, Node.js, PHP and Django',
     desk: [0.39, 0.07],
     phone: [0.26, 0.28],
   },

@@ -50,7 +50,7 @@ function Statement() {
 }
 
 function Marquee() {
-  const items = ['React', 'Poptin', 'TypeScript', 'Buy Me a Coffee', 'Next.js', 'Entri', 'Storepecker', 'Node.js']
+  const items = ['React', 'Poptin', 'Vue', 'TypeScript', 'Buy Me a Coffee', 'Next.js', 'Entri', 'Storepecker', 'Node.js']
   const row = [...items, ...items]
   return (
     <div className="e-marquee" aria-hidden>

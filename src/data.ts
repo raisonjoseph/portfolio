@@ -55,9 +55,9 @@ export const PROJECTS: Project[] = [
 
 export const ROLE = 'Senior Front End Developer'
 export const INTRO =
-  'Front end developer with 7 years of experience building websites and web apps with React and TypeScript. Currently Senior Frontend Developer at Poptin, working remotely.'
+  'Front end developer with 7 years of experience building websites and web apps, mostly with React and TypeScript. Currently Senior Frontend Developer at Poptin, working remotely with Vue, jQuery and PHP.'
 
-export const SKILLS = ['React', 'TypeScript', 'Next.js', 'JavaScript', 'HTML', 'CSS', 'Node.js', 'Django']
+export const SKILLS = ['React', 'TypeScript', 'Next.js', 'Vue', 'JavaScript', 'jQuery', 'HTML', 'CSS', 'Node.js', 'PHP', 'Django']
 
 export type Job = {
   id: string
@@ -75,7 +75,7 @@ export type Job = {
 export const EXPERIENCE: Job[] = [
   {
     id: 'poptin',
-    tags: ['React', 'TypeScript', 'Billing', 'Shopify'],
+    tags: ['Vue', 'jQuery', 'PHP', 'Billing', 'Shopify'],
     company: 'Poptin',
     role: 'Senior Frontend Developer',
     start: 'Apr 2024',
@@ -166,7 +166,7 @@ export const ACHIEVEMENTS = [
 
 // Shared bio, used by every version's About section.
 export const ABOUT_SHORT =
-  'Senior front end developer with seven years of React and TypeScript. I build product interfaces for SaaS teams, and I like owning a feature from the first sketch to the last edge case.'
+  'Senior front end developer with seven years of experience across React, Vue and TypeScript. I build product interfaces for SaaS teams, and I like owning a feature from the first sketch to the last edge case.'
 
 export const ABOUT = [
   'I’m Raison Joseph, a senior front end developer from Kerala, India. For seven years I’ve built the parts of web products that people use every day, mostly with React, TypeScript and Next.js.',
@@ -202,7 +202,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Brought two purchase paths, direct on Poptin and through the Shopify app, into one consistent checkout.',
       'Shipped it as part of Poptin’s redesigned interface.',
     ],
-    stack: ['React', 'TypeScript', 'Shopify billing'],
+    stack: ['Vue', 'jQuery', 'PHP', 'Shopify billing'],
   },
   {
     id: 'canvas',
@@ -217,7 +217,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Built the automation canvas UI, where customers design flows by connecting triggers and actions.',
       'Co-built the email editor customers use to design the emails their automations send.',
     ],
-    stack: ['React', 'TypeScript', 'Canvas UI', 'Editors'],
+    stack: ['Vue', 'jQuery', 'PHP', 'Canvas UI', 'Editors'],
   },
   {
     id: 'storepecker',

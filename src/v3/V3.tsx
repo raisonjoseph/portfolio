@@ -31,7 +31,7 @@ function Hero() {
         transition={{ delay: 0.8, duration: 0.6, ease }}
       >
         <p className="y-intro">
-          I’m Raison Joseph, a senior front end developer with seven years of React and TypeScript behind me.
+          I’m Raison Joseph, a senior front end developer with seven years of React, Vue and TypeScript behind me.
         </p>
         <p className="y-now">
           <span className="y-pulse" aria-hidden />

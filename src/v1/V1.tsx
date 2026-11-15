@@ -627,7 +627,7 @@ export default function V1() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6, ease }}
             >
-              Senior front end developer. Seven years of React and TypeScript, currently at Poptin. On the side I
+              Senior front end developer. Seven years of front end work in React, Vue and TypeScript, currently at Poptin. On the side I
                 build practice websites.
               </motion.p>
               <motion.div
