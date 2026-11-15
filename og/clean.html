@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8" />
+<!-- Removes the painted checkerboard from og/illustration-3d.png by flood-filling light,
+     grey pixels inward from the image border. Screenshot with a transparent background to save. -->
+<style>html,body{margin:0;width:100vw;height:100vh;overflow:hidden;background:transparent}canvas{display:block;width:100vw;height:100vh}</style>
+</head><body><canvas id="c" width="1024" height="1024"></canvas>
+<script>
+const img = new Image()
+img.onload = () => {
+  const c = document.getElementById('c'), ctx = c.getContext('2d')
+  ctx.drawImage(img, 0, 0)
+  const W = 1024, H = 1024, d = ctx.getImageData(0, 0, W, H), p = d.data
+  const isBg = (i, loose) => {
+    const r = p[i], g = p[i + 1], b = p[i + 2]
+    const mx = Math.max(r, g, b), mn = Math.min(r, g, b)
+    return mx - mn < (loose ? 26 : 16) && mn > (loose ? 175 : 196)
+  }
+  const seen = new Uint8Array(W * H), q = []
+  const push = (x, y) => { const k = y * W + x; if (!seen[k] && isBg(k * 4, false)) { seen[k] = 1; q.push(k) } }
+  for (let x = 0; x < W; x++) { push(x, 0); push(x, H - 1) }
+  for (let y = 0; y < H; y++) { push(0, y); push(W - 1, y) }
+  while (q.length) {
+    const k = q.pop(), x = k % W, y = (k / W) | 0
+    if (x > 0) push(x - 1, y); if (x < W - 1) push(x + 1, y)
+    if (y > 0) push(x, y - 1); if (y < H - 1) push(x, y + 1)
+  }
+  // soften the edge: fade light fringe pixels that touch the removed area
+  for (let k = 0; k < W * H; k++) {
+    if (seen[k]) { p[k * 4 + 3] = 0; continue }
+    const x = k % W, y = (k / W) | 0
+    const near = (x > 0 && seen[k - 1]) || (x < W - 1 && seen[k + 1]) || (y > 0 && seen[k - W]) || (y < H - 1 && seen[k + W])
+    if (near && isBg(k * 4, true)) p[k * 4 + 3] = 60
+  }
+  ctx.putImageData(d, 0, 0)
+  document.title = 'done'
+}
+img.src = 'illustration-3d.png'
+</script></body></html>

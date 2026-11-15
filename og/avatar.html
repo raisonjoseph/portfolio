@@ -1,6 +1,6 @@
 <!doctype html>
 <html><head><meta charset="utf-8" />
-<!-- Icons: face crop from the illustrated avatar (og/illustration.png, 1024x1024).
+<!-- Icons: face-centred crop from the 3D avatar (og/illustration-3d.png, 1024x1024).
      Add ?r=22% for rounded corners (favicon/Android); omit for square (iOS rounds it itself). -->
 <style>
   html, body { margin: 0; width: 100vw; height: 100vh; overflow: hidden; background: transparent; }
@@ -8,15 +8,18 @@
     position: absolute; inset: 0;
     border-radius: var(--r, 0);
     overflow: hidden;
-    background-color: #4a86b2;
-    background-image: url(illustration.png);
-    /* 520px square around the face: x 270-790, y 130-650 */
-    background-size: 197%;
-    background-position: 53.6% 25.8%;
+    background: radial-gradient(circle at 50% 40%, #6b9fd0 0%, #3f74ad 100%);
+  }
+  .face {
+    position: absolute; inset: 0;
+    background-image: url(illustration-3d-clean.png);
+    /* 560px square centred on the face (face centre ~ x 530, y 430): x 250-810, y 150-710 */
+    background-size: 182.9%;
+    background-position: 53.9% 32.3%;
   }
 </style></head>
 <body>
-  <div class="tile"></div>
+  <div class="tile"><div class="face"></div></div>
   <script>
     const r = new URLSearchParams(location.search).get('r')
     if (r) document.querySelector('.tile').style.setProperty('--r', r)
