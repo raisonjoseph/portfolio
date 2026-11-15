@@ -79,6 +79,8 @@
         content: ""; position: absolute; top: 0; bottom: 0;
         left: clamp(20px, 9vw, 120px); width: 2px; background: #e0574c; opacity: .55;
       }
+      /* keep in sync with --margin-x in src/v1/v1.css */
+      @media (max-width: 640px) { .boot::before { left: 16px; } }
       .boot-inner { display: grid; justify-items: center; gap: 14px; }
       .boot svg { width: 64px; height: 64px; }
       .boot path {
