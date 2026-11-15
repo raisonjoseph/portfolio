@@ -536,7 +536,7 @@ a { color: inherit; }
   .cs-close { top: 28px; right: 28px; }
 }
 
-.feedback .hint { font-size: 18px; }
+.feedback .hint { font-size: 16px; }
 
 /* ---------- Polish ---------- */
 /* Sticky top bar that tightens on scroll */
