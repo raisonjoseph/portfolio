@@ -330,6 +330,25 @@ function Plus({ open }: { open: boolean }) {
   )
 }
 
+function SunIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <circle cx="12" cy="12" r="4.2" fill="currentColor" />
+      <g stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+        <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" />
+      </g>
+    </svg>
+  )
+}
+
+function MoonIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <path d="M20.2 14.6A8.4 8.4 0 0 1 9.4 3.8a8.4 8.4 0 1 0 10.8 10.8Z" fill="currentColor" />
+    </svg>
+  )
+}
+
 function DownloadIcon() {
   return (
     <svg viewBox="0 0 20 20" aria-hidden className="dl-icon">
@@ -569,12 +588,29 @@ export default function V1() {
               aria-label="Dark mode"
               onClick={() => setDark((d) => !d)}
             >
-              <motion.span className="theme-knob" animate={{ x: dark ? 20 : 0 }} transition={{ type: 'spring', stiffness: 500, damping: 32 }}>
-                {dark ? (
-                  <svg viewBox="0 0 12 12" aria-hidden><path d="M8.5 7.8A4 4 0 0 1 4.2 3.5 4 4 0 1 0 8.5 7.8Z" fill="currentColor" /></svg>
-                ) : (
-                  <svg viewBox="0 0 12 12" aria-hidden><circle cx="6" cy="6" r="2.6" fill="currentColor" /></svg>
-                )}
+              <span className="theme-track-icon sun" aria-hidden>
+                <SunIcon />
+              </span>
+              <span className="theme-track-icon moon" aria-hidden>
+                <MoonIcon />
+              </span>
+              <motion.span
+                className="theme-knob"
+                animate={{ x: dark ? 26 : 0 }}
+                transition={{ type: 'spring', stiffness: 500, damping: 32 }}
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={dark ? 'moon' : 'sun'}
+                    className="theme-knob-icon"
+                    initial={{ rotate: -90, scale: 0.4, opacity: 0 }}
+                    animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                    exit={{ rotate: 90, scale: 0.4, opacity: 0 }}
+                    transition={{ duration: 0.22 }}
+                  >
+                    {dark ? <MoonIcon /> : <SunIcon />}
+                  </motion.span>
+                </AnimatePresence>
               </motion.span>
             </button>
           </div>

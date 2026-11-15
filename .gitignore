@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# intermediate avatar renders
+og/avatar-*.png
