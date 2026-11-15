@@ -1,6 +1,6 @@
 import { Suspense, lazy } from 'react'
 
-// Other versions stay reachable by URL (/v2–/v7). `id` drives per-version body styles (html[data-v=...]).
+// Other versions stay reachable by URL (/v2–/v8). `id` drives per-version body styles (html[data-v=...]).
 const VERSIONS = [
   { path: '/', id: '1', fonts: '', Page: lazy(() => import('./v1/V1')) },
   { path: '/v2', id: '2', fonts: 'Onest:wght@400..800', Page: lazy(() => import('./v2/V2')) },
@@ -8,6 +8,7 @@ const VERSIONS = [
   { path: '/v4', id: 'palette', fonts: 'Hanken+Grotesk:wght@400..800', Page: lazy(() => import('./palette/Palette')) },
   { path: '/v5', id: 'split', fonts: 'Plus+Jakarta+Sans:wght@400..800', Page: lazy(() => import('./split/Split')) },
   { path: '/v6', id: 'bento', fonts: 'Figtree:wght@400..800', Page: lazy(() => import('./bento/Bento')) },
+  { path: '/v8', id: 'world', fonts: 'Bricolage+Grotesque:opsz,wght@12..96,400..800', Page: lazy(() => import('./world/World')) },
   { path: '/v7', id: 'editorial', fonts: 'Archivo:wdth,wght@62..125,400..900&family=Inter+Tight:wght@400..700', Page: lazy(() => import('./editorial/Editorial')) },
 ]
 
