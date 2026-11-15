@@ -202,7 +202,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Brought two purchase paths, direct on Poptin and through the Shopify app, into one consistent checkout.',
       'Shipped it as part of Poptin’s redesigned interface.',
     ],
-    stack: ['Vue', 'jQuery', 'PHP', 'Shopify billing'],
+    stack: ['Vue', 'jQuery', 'PHP'],
   },
   {
     id: 'canvas',
@@ -217,7 +217,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Built the automation canvas UI, where customers design flows by connecting triggers and actions.',
       'Co-built the email editor customers use to design the emails their automations send.',
     ],
-    stack: ['Vue', 'jQuery', 'PHP', 'Canvas UI', 'Editors'],
+    stack: ['Vue', 'jQuery', 'PHP'],
   },
   {
     id: 'storepecker',
