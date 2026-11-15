@@ -632,5 +632,5 @@ a { color: inherit; }
 
 /* Phones: red margin line closer to the edge, giving content more room */
 @media (max-width: 640px) {
-  :root { --margin-x: 12px; --gutter: 18px; }
+  :root { --margin-x: 16px; --gutter: 18px; }
 }
