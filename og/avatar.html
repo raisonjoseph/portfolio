@@ -1,38 +1,22 @@
 <!doctype html>
 <html><head><meta charset="utf-8" />
-<!-- Avatar for icons: tight face crop from public/raison.jpg, recoloured to the site's ink + paper. -->
+<!-- Icons: face crop from the illustrated avatar (og/illustration.png, 1024x1024).
+     Add ?r=22% for rounded corners (favicon/Android); omit for square (iOS rounds it itself). -->
 <style>
   html, body { margin: 0; width: 100vw; height: 100vh; overflow: hidden; background: transparent; }
   .tile {
     position: absolute; inset: 0;
     border-radius: var(--r, 0);
     overflow: hidden;
-    background: #172339;
+    background-color: #4a86b2;
+    background-image: url(illustration.png);
+    /* 520px square around the face: x 270-790, y 130-650 */
+    background-size: 197%;
+    background-position: 53.6% 25.8%;
   }
-  .face {
-    position: absolute; inset: 0;
-    background-image: url(../public/raison.jpg);
-    background-size: 196%;
-    background-position: 51% 24%;
-    filter: contrast(1.35) brightness(1.08) url(#duo);
-  }
-  /* fade the busy brick wall into ink so the face reads at 32px */
-  .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 46% 54% at 50% 46%, transparent 62%, rgba(23,35,57,.92) 100%); }
-  /* red underline, like the site's margin line, turned into a bottom bar */
-  .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 6%; background: #e0574c; }
 </style></head>
 <body>
-  <svg width="0" height="0" style="position:absolute">
-    <filter id="duo" color-interpolation-filters="sRGB">
-      <feColorMatrix type="saturate" values="0" />
-      <feComponentTransfer>
-        <feFuncR type="table" tableValues="0.090 0.953" />
-        <feFuncG type="table" tableValues="0.137 0.961" />
-        <feFuncB type="table" tableValues="0.224 0.973" />
-      </feComponentTransfer>
-    </filter>
-  </svg>
-  <div class="tile"><div class="face"></div><div class="vignette"></div><div class="bar"></div></div>
+  <div class="tile"></div>
   <script>
     const r = new URLSearchParams(location.search).get('r')
     if (r) document.querySelector('.tile').style.setProperty('--r', r)
