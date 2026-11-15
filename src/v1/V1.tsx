@@ -554,9 +554,6 @@ export default function V1() {
     <MotionConfig reducedMotion="user">
       <motion.div
         className="margin-line"
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: 1 }}
-        transition={{ duration: 1.1, ease }}
         aria-hidden
       />
       <div className="page">
