@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raison Joseph – Senior Front End Developer</title>
+    <meta name="description" content="Raison Joseph is a senior front end developer with seven years of React and TypeScript. Billing, editors, canvases and dashboards for SaaS products, currently at Poptin." />
+    <meta name="author" content="Raison Joseph" />
+    <meta name="theme-color" content="#f3f5f8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Link previews (LinkedIn, WhatsApp, Slack, X) -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Raison Joseph" />
+    <meta property="og:title" content="Raison Joseph – Senior Front End Developer" />
+    <meta property="og:description" content="Seven years of React and TypeScript. Billing, editors, canvases and dashboards for SaaS products." />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_URL%/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Raison Joseph, Senior Front End Developer" />
+    <meta property="profile:first_name" content="Raison" />
+    <meta property="profile:last_name" content="Joseph" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Raison Joseph – Senior Front End Developer" />
+    <meta name="twitter:description" content="Seven years of React and TypeScript. Billing, editors, canvases and dashboards for SaaS products." />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/og.png" />
+
+    <!-- Search engines: who this page is about -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Raison Joseph",
+        "jobTitle": "Senior Front End Developer",
+        "url": "%VITE_SITE_URL%/",
+        "image": "%VITE_SITE_URL%/og.png",
+        "worksFor": { "@type": "Organization", "name": "Poptin" },
+        "address": { "@type": "PostalAddress", "addressRegion": "Kerala", "addressCountry": "IN" },
+        "knowsAbout": ["React", "TypeScript", "Next.js", "JavaScript", "HTML", "CSS", "Node.js", "Django", "Front end development"],
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "SNGIST Group of Institutions" },
+        "sameAs": ["https://www.linkedin.com/in/raison-joseph/", "https://github.com/raisonjoseph"]
+      }
+    </script>
+
+
+    <!-- Boot: apply the saved theme before anything paints, and style the loader. -->
+    <script>
+      try {
+        if (location.pathname === '/' && localStorage.getItem('v1-theme') === 'dark')
+          document.documentElement.dataset.theme = 'dark'
+      } catch (e) {}
+    </script>
+    <style>
+      html { background: #f3f5f8; }
+      html[data-theme="dark"] { background: #141b29; }
+      body { margin: 0; }
+      .boot {
+        position: fixed; inset: 0; z-index: 1000;
+        display: grid; place-items: center;
+        background: #f3f5f8;
+        font-family: "Bricolage Grotesque", system-ui, sans-serif;
+        color: #172339;
+      }
+      html[data-theme="dark"] .boot { background: #141b29; color: #e6ebf3; }
+      .boot::before {
+        content: ""; position: absolute; top: 0; bottom: 0;
+        left: clamp(20px, 9vw, 120px); width: 2px; background: #e0574c; opacity: .55;
+      }
+      .boot-inner { display: grid; justify-items: center; gap: 14px; }
+      .boot svg { width: 64px; height: 64px; }
+      .boot path {
+        fill: none; stroke: #e0574c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;
+        stroke-dasharray: 80; stroke-dashoffset: 80;
+        animation: boot-draw 1.2s cubic-bezier(.65, 0, .35, 1) infinite;
+      }
+      .boot-name { font-size: 15px; font-weight: 600; letter-spacing: .01em; opacity: .7; }
+      @keyframes boot-draw {
+        0% { stroke-dashoffset: 80; opacity: 1; }
+        55% { stroke-dashoffset: 0; opacity: 1; }
+        85% { stroke-dashoffset: 0; opacity: 0; }
+        100% { stroke-dashoffset: 80; opacity: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .boot path { animation: none; stroke-dashoffset: 0; }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Only version 1's fonts load up front; other versions load theirs on demand (see App.tsx). -->
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="boot" role="status" aria-label="Loading">
+        <div class="boot-inner">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 34 C16 38 20 44 24 52 C32 34 42 20 58 8" /></svg>
+          <span class="boot-name">Raison Joseph</span>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
