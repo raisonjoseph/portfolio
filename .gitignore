@@ -25,3 +25,4 @@ dist-ssr
 
 # intermediate avatar renders
 og/avatar-*.png
+og/monogram.png
