@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, MotionConfig, motion, useAnimationControls } from 'framer-motion'
 import { ABOUT, ACHIEVEMENTS, CONTACT_EMAIL, EXPERIENCE, GITHUB_URL, LINKEDIN_URL, CV_URL, PHONE, PHONE_HREF, PROJECTS, SKILLS } from '../data'
 import CaseStudies from './CaseStudies'
+import { track } from '../analytics'
 import './v1.css'
 
 
@@ -635,7 +636,7 @@ export default function V1() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.6, ease }}
               >
-                <a className="btn cv-btn" href={CV_URL} download>
+                <a className="btn cv-btn" href={CV_URL} download onClick={() => track('cv_download', { cv_location: 'hero' })}>
                   <DownloadIcon />
                   Download CV
                 </a>
@@ -691,7 +692,7 @@ export default function V1() {
             </a>
             <div className="contact-links">
               <a href={PHONE_HREF}>{PHONE}</a>
-              <a href={CV_URL} download>
+              <a href={CV_URL} download onClick={() => track('cv_download', { cv_location: 'contact' })}>
                 Download CV
               </a>
               <a href={LINKEDIN_URL} target="_blank" rel="noreferrer">
