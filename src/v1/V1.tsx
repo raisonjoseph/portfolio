@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { AnimatePresence, MotionConfig, motion, useAnimationControls } from 'framer-motion'
 import { ABOUT, ACHIEVEMENTS, CONTACT_EMAIL, EXPERIENCE, GITHUB_URL, LINKEDIN_URL, CV_URL, PHONE, PHONE_HREF, PROJECTS, SKILLS } from '../data'
 import CaseStudies from './CaseStudies'
@@ -520,10 +521,30 @@ function WorkList({ openId, setOpenId }: { openId: string | null; setOpenId: (id
 export default function V1() {
   const [openId, setOpenId] = useState<string | null>(null)
 
+  // Scroll once the row has rendered open. Aim at the row's top (below the sticky nav) rather than its
+  // centre: the detail panel expands for 0.35s, so a centred target keeps moving and the first smooth
+  // scroll used to stop short. A second pass after the expand corrects for any item above collapsing.
+  const [scrollTarget, setScrollTarget] = useState<{ id: string } | null>(null)
   const openProject = (id: string) => {
     setOpenId(id)
-    document.getElementById(`work-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    setScrollTarget({ id })
   }
+  useEffect(() => {
+    if (!scrollTarget) return
+    const scrollToRow = (behavior: ScrollBehavior) => {
+      const el = document.getElementById(`work-${scrollTarget.id}`)
+      if (!el) return
+      const navH = document.querySelector<HTMLElement>('.nav')?.offsetHeight ?? 0
+      const top = el.getBoundingClientRect().top + window.scrollY - navH - 16
+      if (Math.abs(top - window.scrollY) > 4) window.scrollTo({ top, behavior })
+    }
+    const raf = requestAnimationFrame(() => scrollToRow('smooth'))
+    const settle = setTimeout(() => scrollToRow('smooth'), 900)
+    return () => {
+      cancelAnimationFrame(raf)
+      clearTimeout(settle)
+    }
+  }, [scrollTarget])
 
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
@@ -549,6 +570,31 @@ export default function V1() {
       /* storage unavailable */
     }
   }, [dark])
+
+  // Theme switch: the new theme grows out of the toggle as a circle (View Transitions API).
+  // Falls back to an instant swap where unsupported or when the viewer prefers reduced motion.
+  const toggleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const next = !dark
+    const apply = () => {
+      document.documentElement.dataset.theme = next ? 'dark' : 'light'
+      flushSync(() => setDark(next))
+    }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (!document.startViewTransition || reduce) {
+      apply()
+      return
+    }
+    const r = e.currentTarget.getBoundingClientRect()
+    const x = r.left + r.width / 2
+    const y = r.top + r.height / 2
+    const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
+    document.startViewTransition(apply).ready.then(() => {
+      document.documentElement.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+        { duration: 550, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', pseudoElement: '::view-transition-new(root)' },
+      )
+    })
+  }
 
   return (
     <MotionConfig reducedMotion="user">
@@ -584,7 +630,7 @@ export default function V1() {
               role="switch"
               aria-checked={dark}
               aria-label="Dark mode"
-              onClick={() => setDark((d) => !d)}
+              onClick={toggleTheme}
             >
               <span className="theme-track-icon sun" aria-hidden>
                 <SunIcon />

@@ -634,3 +634,10 @@ a { color: inherit; }
 @media (max-width: 640px) {
   :root { --margin-x: 16px; --gutter: 18px; }
 }
+
+/* Theme switch: let the circular reveal (V1.tsx toggleTheme) replace the default cross-fade. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
